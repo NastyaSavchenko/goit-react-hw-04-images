@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const ButtonStyled = styled.button`
   padding: 8px 16px;
   margin: 20px auto;
-  border-radius: 2px;
-  background-color: #3f51b5;
+  border-radius: 4px;
+  background-color: #6674c3;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: block;

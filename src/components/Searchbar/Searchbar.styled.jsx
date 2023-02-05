@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import bg from '../../bg-img/bg.jpg';
+
 export const Header = styled.header`
   top: 0;
   left: 0;
@@ -15,6 +17,15 @@ export const Header = styled.header`
   padding-bottom: 12px;
   margin-bottom: 20px;
   color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url('${bg}');
   background-color: #3f51b5;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);

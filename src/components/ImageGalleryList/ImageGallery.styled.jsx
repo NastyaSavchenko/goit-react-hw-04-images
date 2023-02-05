@@ -14,9 +14,18 @@ export const GalleryListStyled = styled.ul`
 `;
 
 export const GalleryItemStyled = styled.li`
-  border-radius: 2px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  overflow: hidden;
+  display: block;
+  border: solid 1px;
+  border-color: rgb(231, 224, 228);
+
+  &:hover,
+  &:focus {
+    border-color: rgb(194, 163, 223);
+    box-shadow: 0px 3px 20px rgb(0 0 0 / 20%), 0px 3px 10px rgb(0 0 0 / 14%),
+      0px 6px 15px rgb(0 0 0 / 20%);
+  }
 `;
 
 export const ImageStyled = styled.img`
