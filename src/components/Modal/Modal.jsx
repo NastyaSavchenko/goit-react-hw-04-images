@@ -1,39 +1,39 @@
 import PT from 'prop-types';
-import React, { PureComponent } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ModalStyled, Overlay } from './Modal.styled';
 
 const modalRoot = document.getElementById('modal-root');
 
-export default class Modal extends PureComponent {
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeydown);
-  }
+const Modal = ({ onClose, children }) => {
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeydown);
+  });
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeydown);
-  }
+  useEffect(() => {
+    window.removeEventListener('keydown', handleKeydown);
+  });
 
-  handleKeydown = e => {
-    if (e.code === 'Escape') this.props.onClose();
+  const handleKeydown = e => {
+    if (e.code === 'Escape') onClose();
   };
 
-  onBackdropClick = event => {
-    if (event.currentTarget === event.target) this.props.onClose();
+  const onBackdropClick = event => {
+    if (event.currentTarget === event.target) onClose();
   };
 
-  render() {
-    return createPortal(
-      <Overlay onClick={this.onBackdropClick}>
-        <ModalStyled>{this.props.children}</ModalStyled>
-      </Overlay>,
-      modalRoot
-    );
-  }
-}
+  return createPortal(
+    <Overlay onClick={onBackdropClick}>
+      <ModalStyled>{children}</ModalStyled>
+    </Overlay>,
+    modalRoot
+  );
+};
 
 Modal.propTypes = {
   onClose: PT.func,
   children: PT.node,
 };
+
+export default Modal;

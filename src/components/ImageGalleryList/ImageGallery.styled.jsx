@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const MainTitle = styled.h1`
+  color: rgb(78, 171, 197);
+  text-align: center;
+  margin: 50px 20px;
+`;
+
 export const GalleryListStyled = styled.ul`
   display: grid;
   max-width: calc(100vw - 48px);
