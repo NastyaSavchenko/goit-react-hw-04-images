@@ -9,11 +9,10 @@ const modalRoot = document.getElementById('modal-root');
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
-  });
-
-  useEffect(() => {
-    window.removeEventListener('keydown', handleKeydown);
-  });
+    return function clinup() {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, []);
 
   const handleKeydown = e => {
     if (e.code === 'Escape') onClose();
